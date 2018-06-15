@@ -36,3 +36,23 @@ class Product
     product = SqlRunner.run(sql, values).first
     @id = product['id'].to_i
   end
+
+  def self.all()
+    sql = "SELECT * FROM products"
+    product_data = SqlRunner.run(sql)
+    return Product.map_items(product_data)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
