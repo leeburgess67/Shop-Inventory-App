@@ -10,7 +10,7 @@ class TestShop < MiniTest::Test
   def setup
     options = ({
       "name" => "ShopQwik",
-      "takings" => 0,
+      "takings" => 500,
       "stockholding_value_cost_price" => 0,
       "stockholding_value_retail_price" => 0
     })
@@ -24,7 +24,7 @@ class TestShop < MiniTest::Test
 
   def test_get_shop_takings
     result = @shop.takings()
-    assert_equal(0, result)
+    assert_equal(500, result)
   end
 
   def test_get_shop_stockholding__cost
