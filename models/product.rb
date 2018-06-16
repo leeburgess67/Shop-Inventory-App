@@ -1,5 +1,7 @@
 require_relative('../db/sql_runner')
-require('pry')
+require_relative('./shop.rb')
+require('pry-byebug')
+
 
 class Product
 
@@ -76,6 +78,20 @@ class Product
     WHERE id = $1"
     values = [@id]
     SqlRunner.run( sql, values )
+  end
+
+
+  def sold(qty, shop)
+    @bookstock -= qty
+    value = @retail_price.to_i * qty.to_i
+    return shop.takings += value
+
+  end
+
+  def refund(qty, shop)
+    @bookstock += qty
+    value = @retail_price.to_i * qty.to_i
+    return shop.takings -= value
   end
 
 
