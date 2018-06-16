@@ -39,6 +39,21 @@ class Supplier
     SqlRunner.run( sql )
   end
 
+
+  def update()
+    sql = "UPDATE products
+    SET
+    (
+    name,
+    email
+    ) =
+    (
+      $1, $2
+    )
+    WHERE id = $3"
+    values = [@name, @email, @id]
+    SqlRunner.run( sql, values )
+  end
 binding.pry
 
 
