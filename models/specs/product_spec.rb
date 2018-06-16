@@ -72,4 +72,18 @@ class TestProduct < MiniTest::Test
   assert_equal(375, result)
   end
 
+  def test_refund_product__bookstock_increases()
+  @product1.refund(1, @shop)
+  result = @product1.bookstock
+  assert_equal(26, result)
+  end
+
+
+  def test_refund_product__shop_takings_decrease_by_retail_price()
+  @product1.refund(1, @shop)
+  result = @shop.takings
+  assert_equal(-75, result)
+  end
+
+
 end
