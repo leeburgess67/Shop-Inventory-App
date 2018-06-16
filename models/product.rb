@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require('pry')
 
 class Product
 
@@ -39,8 +40,8 @@ class Product
 
   def self.all()
     sql = "SELECT * FROM products"
-    product_data = SqlRunner.run(sql)
-    return Product.map_items(product_data)
+    results = SqlRunner.run( sql )
+    return results.map { |product| Product.new( product ) }
   end
 
 
@@ -48,6 +49,9 @@ class Product
     sql = "DELETE FROM products"
     SqlRunner.run( sql )
   end
+
+
+  binding.pry
 
 
 
