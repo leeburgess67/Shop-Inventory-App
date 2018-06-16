@@ -1,5 +1,5 @@
 DROP TABLE products;
-DROP TABLE suppliers:
+DROP TABLE suppliers;
 
 
 CREATE TABLE suppliers (

@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Supplier
 
-  attr_reader :id,
+  attr_reader :id
   attr_accessor :name, :email
 
   def initialize(options)
@@ -15,7 +15,7 @@ class Supplier
     sql = "INSERT INTO suppliers
     (
       name,
-      email,
+      email
     )
     VALUES
     (
@@ -31,6 +31,11 @@ class Supplier
     sql = "SELECT * FROM suppliers"
     supplier_data = SqlRunner.run(sql)
     return Supplier.map_items(supplier_data)
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM suppliers"
+    SqlRunner.run( sql )
   end
 
 
