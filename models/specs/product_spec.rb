@@ -50,4 +50,10 @@ class TestProduct < MiniTest::Test
     assert_equal(1, result)
   end
 
+  def test_sell_product()
+  @product1.sold(5)
+  result = @product1.bookstock
+  assert_equal(20, result)
+  end
+
 end
