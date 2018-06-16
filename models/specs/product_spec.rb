@@ -25,27 +25,27 @@ class TestProduct < MiniTest::Test
 
   end
 
-  def test_description()
+  def test_get_description()
     result = @product1.description()
     assert_equal("Heinz Baked Beans", result)
   end
 
-  def test_cost_price()
+  def test_get_cost_price()
     result = @product1.cost_price()
     assert_equal(45, result)
   end
 
-  def test_retail_price()
+  def test_get_retail_price()
     result = @product1.retail_price()
     assert_equal(75, result)
   end
 
-  def test_bookstock()
+  def test_get_bookstock()
     result = @product1.bookstock()
     assert_equal(25, result)
   end
 
-  def test_supplier_id()
+  def test_get_supplier_id()
     result = @product1.supplier_id()
     assert_equal(1, result)
   end
