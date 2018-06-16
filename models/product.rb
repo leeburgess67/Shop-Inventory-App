@@ -50,6 +50,25 @@ class Product
     SqlRunner.run( sql )
   end
 
+  def update()
+    sql = "UPDATE products
+    SET
+    (
+    description,
+    cost_price,
+    retail_price,
+    item_markup,
+    bookstock,
+    supplier_id
+    ) =
+    (
+      $1, $2, $3, $4, $5, $6
+    )
+    WHERE id = $7"
+    values = [@description, @cost_price, @retail_price, @item_markup, @bookstock, @supplier_id, @id]
+    SqlRunner.run( sql, values )
+  end
+
 
   binding.pry
 
