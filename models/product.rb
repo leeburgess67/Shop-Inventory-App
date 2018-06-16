@@ -10,7 +10,7 @@ class Product
     @description = options['description']
     @cost_price = options['cost_price'].to_i
     @retail_price = options['retail_price'].to_i
-    @item_markup = options['item_markup'].to_i
+    @item_markup =  (options['retail_price'].to_i) - (options['cost_price'].to_i)
     @bookstock = options['bookstock'].to_i
     @supplier_id = options['supplier_id'].to_i
 
