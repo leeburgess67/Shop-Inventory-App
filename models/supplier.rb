@@ -12,6 +12,7 @@ class Supplier
     @email = options['email']
   end
 
+  #CREATE
   def save()
     sql = "INSERT INTO suppliers
     (
@@ -28,25 +29,14 @@ class Supplier
     @id = supplier['id'].to_i
   end
 
+  #READ
   def self.all()
     sql = "SELECT * FROM suppliers"
     results = SqlRunner.run( sql )
     return results.map { |supplier| Supplier.new( supplier ) }
   end
 
-  def self.delete_all
-    sql = "DELETE FROM suppliers"
-    SqlRunner.run( sql )
-  end
-
-  def delete()
-    sql = "DELETE FROM suppliers
-    WHERE id = $1"
-    values = [@id]
-    SqlRunner.run( sql, values )
-  end
-
-
+  #UPDATE
   def update()
     sql = "UPDATE products
     SET
@@ -61,7 +51,19 @@ class Supplier
     values = [@name, @email, @id]
     SqlRunner.run( sql, values )
   end
-binding.pry
+
+  #DELETE
+  def self.delete_all
+    sql = "DELETE FROM suppliers"
+    SqlRunner.run( sql )
+  end
+
+  def delete()
+    sql = "DELETE FROM suppliers
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
 
 
 

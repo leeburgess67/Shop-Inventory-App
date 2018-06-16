@@ -3,8 +3,8 @@ require('pry')
 
 class Product
 
-  attr_reader :id, :cost_price
-  attr_accessor :description, :retail_price
+  attr_reader :id, :cost_price, :supplier_id
+  attr_accessor :description, :retail_price, :bookstock
 
   def initialize(options)
     @id = options['id'].to_i
@@ -17,7 +17,7 @@ class Product
 
 
   end
-
+  #CREATE
   def save()
     sql = "INSERT INTO products
     (
@@ -38,25 +38,14 @@ class Product
     @id = product['id'].to_i
   end
 
+  #READ
   def self.all()
     sql = "SELECT * FROM products"
     results = SqlRunner.run( sql )
     return results.map { |product| Product.new( product ) }
   end
 
-
-  def self.delete_all
-    sql = "DELETE FROM products"
-    SqlRunner.run( sql )
-  end
-
-  def delete()
-    sql = "DELETE FROM products
-    WHERE id = $1"
-    values = [@id]
-    SqlRunner.run( sql, values )
-  end
-
+  #UPDATE
   def update()
     sql = "UPDATE products
     SET
@@ -76,8 +65,20 @@ class Product
     SqlRunner.run( sql, values )
   end
 
+  #DELETE
+  def self.delete_all
+    sql = "DELETE FROM products"
+    SqlRunner.run( sql )
+  end
 
-  binding.pry
+  def delete()
+    sql = "DELETE FROM products
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+
 
 
 
