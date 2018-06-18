@@ -104,6 +104,12 @@ class Product
       return  @retail_price - @cost_price
   end
 
+  def check_stock
+    return "stock-red" if @bookstock < 5
+    return "stock-amber" if @bookstock > 4
+    return "stock-green" if @bookstock > 12
+  end
+
 
 
 

@@ -16,6 +16,12 @@ get '/products/new' do
   erb ( :"products/new" )
 end
 
+post '/products/:id/delete' do
+  product = Product.find( params[:id] )
+  product.delete()
+  redirect to '/products/show-all'
+end
+
 
 post '/products/show-all' do
   @product = Product.new( params )

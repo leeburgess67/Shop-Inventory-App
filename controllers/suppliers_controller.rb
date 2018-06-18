@@ -21,3 +21,14 @@ post '/suppliers/:id' do
   Supplier.new(params).update
   redirect '/suppliers/show-all'
 end
+
+get '/suppliers/new' do
+  @suppliers = Supplier.all
+  erb ( :"suppliers/new")
+end
+
+post '/suppliers/show-new' do
+  @supplier = Supplier.new(params)
+  @supplier.save()
+  erb ( :"suppliers/create" )
+end
