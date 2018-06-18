@@ -9,5 +9,5 @@ also_reload( '../models/*' )
 
 get '/suppliers/show-all' do
   @suppliers = Supplier.all()
-  erb( :'suppliers/index')
+  erb ( :"suppliers/index")
 end

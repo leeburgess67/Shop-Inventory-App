@@ -17,5 +17,4 @@ CREATE TABLE products (
   item_markup INT4,
   bookstock INT2,
   supplier_id INT4 REFERENCES suppliers(id)
-
 );
