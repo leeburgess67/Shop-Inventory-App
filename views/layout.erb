@@ -5,6 +5,21 @@
     <title>My.STK</title>
   </head>
   <body>
-<p>something</p>
+    <nav>
+      <ul>
+        <li>
+          <a href="/products/show-all">Show current stockholding</a>
+        </li>
+        <li>
+          <a href="/products/new">Add a product</a>
+        </li>
+        <li>
+          <a href="/"></a>
+        </li>
+      </ul>
+    </nav>
+    <section id="content">
+    <%= yield %>
+    </section>
   </body>
 </html>

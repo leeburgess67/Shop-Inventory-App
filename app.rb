@@ -1,9 +1,8 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
-require_relative( './models/product.rb' )
-require_relative( './models/shop.rb' )
-require_relative( './models/supplier.rb' )
+require_relative( 'controllers/products_controller.rb' )
+require_relative( 'controllers/suppliers_controller.rb' )
 also_reload( '../models/*' )
 
 get '/' do

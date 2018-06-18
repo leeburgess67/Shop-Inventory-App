@@ -13,7 +13,6 @@ class Product
     @description = options['description']
     @cost_price = options['cost_price'].to_i
     @retail_price = options['retail_price'].to_i
-    @item_markup =  (options['retail_price'].to_i) - (options['cost_price'].to_i)
     @bookstock = options['bookstock'].to_i
     @supplier_id = options['supplier_id'].to_i
 
@@ -26,7 +25,6 @@ class Product
       description,
       cost_price,
       retail_price,
-      item_markup,
       bookstock,
       supplier_id
     )
@@ -35,7 +33,7 @@ class Product
       $1, $2, $3, $4, $5, $6
     )
     RETURNING *"
-    values = [@description, @cost_price, @retail_price, @item_markup, @bookstock, @supplier_id]
+    values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id]
     product = SqlRunner.run(sql, values).first
     @id = product['id'].to_i
   end
@@ -43,9 +41,21 @@ class Product
   #READ
   def self.all()
     sql = "SELECT * FROM products"
-    results = SqlRunner.run( sql )
-    return results.map { |product| Product.new( product ) }
+    products = SqlRunner.run( sql )
+    result =  products.map { |product| Product.new( product ) }
   end
+
+
+  def self.find( id )
+    sql = "SELECT * FROM products
+    WHERE id = $1"
+    values = [id]
+    product = SqlRunner.run( sql, values )
+    result = Product.new( product.first )
+    return result
+  end
+
+
 
   #UPDATE
   def update()
@@ -55,7 +65,6 @@ class Product
     description,
     cost_price,
     retail_price,
-    item_markup,
     bookstock,
     supplier_id
     ) =
@@ -63,7 +72,7 @@ class Product
       $1, $2, $3, $4, $5, $6
     )
     WHERE id = $7"
-    values = [@description, @cost_price, @retail_price, @item_markup, @bookstock, @supplier_id, @id]
+    values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id, @id]
     SqlRunner.run( sql, values )
   end
 
@@ -94,7 +103,9 @@ class Product
     return shop.takings -= value
   end
 
-
+  def markup
+      return  @retail_price - @cost_price
+  end
 
 
 

@@ -36,6 +36,15 @@ class Supplier
     return results.map { |supplier| Supplier.new( supplier ) }
   end
 
+  def self.find( id )
+    sql = "SELECT * FROM suppliers
+    WHERE id = $1"
+    values = [id]
+    supplier = SqlRunner.run( sql, values )
+    result = Supplier.new( product.first )
+    return result
+  end
+
   #UPDATE
   def update()
     sql = "UPDATE products
