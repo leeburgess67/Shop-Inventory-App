@@ -17,6 +17,12 @@ get '/suppliers/:id/edit' do
   erb ( :"suppliers/edit" )
 end
 
+post '/suppliers/:id/delete' do
+  supplier = Supplier.find( params[:id] )
+  supplier.delete()
+  redirect to '/suppliers/show-all'
+end
+
 post '/suppliers/:id' do
   Supplier.new(params).update
   redirect '/suppliers/show-all'

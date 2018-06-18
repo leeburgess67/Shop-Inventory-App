@@ -16,5 +16,5 @@ CREATE TABLE products (
   retail_price INT4,
   item_markup INT4,
   bookstock INT2,
-  supplier_id INT4 REFERENCES suppliers(id)
+  supplier_id INT4 REFERENCES suppliers(id) ON DELETE CASCADE
 );
