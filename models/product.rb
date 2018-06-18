@@ -15,8 +15,6 @@ class Product
     @retail_price = options['retail_price'].to_i
     @bookstock = options['bookstock'].to_i
     @supplier_id = options['supplier_id'].to_i
-
-
   end
   #CREATE
   def save()
@@ -94,7 +92,6 @@ class Product
     @bookstock -= qty
     value = @retail_price.to_i * qty.to_i
     return shop.takings += value
-
   end
 
   def refund(qty, shop)
@@ -107,11 +104,6 @@ class Product
       return  @retail_price - @cost_price
   end
 
-  def convert_supplier_id_to_name
-    for supplier in @suppliers
-
-
-  end
 
 
 

@@ -7,23 +7,28 @@ Product.delete_all()
 
 supplier1 = Supplier.new({
   "name" => "Cool Beanz Co",
-  "email" => "coolbeanz@unilever.com"
+  "email" => "coolbeanz@unilever.com",
+  "phone" => "01311346542"
 })
 supplier2 = Supplier.new({
   "name" => "Alpha Wholesale",
-  "email" => "alpha@wholesare.com"
+  "email" => "alpha@wholesare.com",
+  "phone" => "01414927593"
 })
 supplier3 = Supplier.new({
   "name" => "Hughson Brothers Co",
-  "email" => "hbbros@wholesale.com"
+  "email" => "hbbros@wholesale.com",
+  "phone" => "01317683773"
 })
 supplier4 = Supplier.new({
   "name" => "JW Fillshill",
-  "email" => "JW@Fillshillwholesale.co.uk"
+  "email" => "JW@Fillshillwholesale.co.uk",
+  "phone" => "07993857726"
 })
 supplier5 = Supplier.new({
   "name" => "Lynas",
-  "email" => "lynasfoodservice@scotland.co.uk"
+  "email" => "lynasfoodservice@scotland.co.uk",
+  "phone" => "07443556927"
 })
 
 supplier1.save

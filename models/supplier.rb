@@ -4,12 +4,13 @@ require('pry')
 class Supplier
 
   attr_reader :id
-  attr_accessor :name, :email
+  attr_accessor :name, :email, :phone
 
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
     @email = options['email']
+    @phone = options['phone'].to_i
   end
 
   #CREATE
@@ -17,14 +18,15 @@ class Supplier
     sql = "INSERT INTO suppliers
     (
       name,
-      email
+      email,
+      phone
     )
     VALUES
     (
-      $1, $2
+      $1, $2, $3
     )
     RETURNING *"
-    values = [@name, @email]
+    values = [@name, @email, @phone]
     supplier = SqlRunner.run(sql, values).first
     @id = supplier['id'].to_i
   end
@@ -51,13 +53,14 @@ class Supplier
     SET
     (
     name,
-    email
+    email,
+    phone
     ) =
     (
-      $1, $2
+      $1, $2, $3
     )
-    WHERE id = $3"
-    values = [@name, @email, @id]
+    WHERE id = $4"
+    values = [@name, @email, @phone, @id]
     SqlRunner.run( sql, values )
   end
 
