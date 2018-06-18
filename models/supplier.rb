@@ -47,7 +47,7 @@ class Supplier
 
   #UPDATE
   def update()
-    sql = "UPDATE products
+    sql = "UPDATE suppliers
     SET
     (
     name,

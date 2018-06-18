@@ -5,8 +5,8 @@ require('pry-byebug')
 
 class Product
 
-  attr_reader :id, :cost_price, :supplier_id
-  attr_accessor :description, :retail_price, :bookstock
+  attr_reader :id, :supplier_id
+  attr_accessor :description, :cost_price, :retail_price, :bookstock
 
   def initialize(options)
     @id = options['id'].to_i
@@ -30,7 +30,7 @@ class Product
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5
     )
     RETURNING *"
     values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id]
@@ -69,9 +69,9 @@ class Product
     supplier_id
     ) =
     (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5
     )
-    WHERE id = $7"
+    WHERE id = $6"
     values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id, @id]
     SqlRunner.run( sql, values )
   end
@@ -105,6 +105,12 @@ class Product
 
   def markup
       return  @retail_price - @cost_price
+  end
+
+  def convert_supplier_id_to_name
+    for supplier in @suppliers
+
+
   end
 
 

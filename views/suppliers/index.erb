@@ -1,0 +1,35 @@
+
+<table>
+  <tr>
+  <th>Name</th><th>
+    Email</th><th>Phone</th><th>Item Markup</th><th>Supplier ID</th><th>Current Bookstock</th>
+    </th>
+  </th>
+  </tr>
+  <% for product in @products %>
+<tr>
+  <td>
+    <%= product.description()  %>
+  </td>
+  <td>
+    <%= product.cost_price() %>
+  </td>
+  <td>
+    <%= product.retail_price()  %>
+  </td>
+  <td>
+    <%= product.markup()  %>
+  </td>
+  <td>
+    <%= product.supplier_id()  %>
+  </td>
+  <td>
+    <%= product.bookstock()  %>
+  </td>
+  <td>
+  <p><a href="/products/<%= product.id %>/edit">Edit</a></p>
+  </td>
+</tr>
+<% end  %>
+
+</table>
