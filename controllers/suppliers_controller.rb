@@ -12,7 +12,12 @@ get '/suppliers/show-all' do
   erb ( :"suppliers/index")
 end
 
-get '/supplier/:id/edit' do
+get '/suppliers/:id/edit' do
   @supplier = Supplier.find(params[:id])
   erb ( :"suppliers/edit" )
+end
+
+post '/suppliers/:id' do
+  Supplier.new(params).update
+  redirect '/suppliers/show-all'
 end
