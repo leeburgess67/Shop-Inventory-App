@@ -1,5 +1,28 @@
+html * {
+font-family: 'Josefin Sans', sans-serif;
+
+}
+nav {
+    display: inline;
+    font-size: 1.3em;
+    padding: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.stock {
+
+      font-size: 1.2em;
+}
+
+
 .stock-green {
-    background-color: green
+    background-color: green;
 }
 
 .stock-amber {
@@ -7,5 +30,15 @@
 }
 
 .stock-red {
-  background-color: red
+  background-color: red;
   }
+
+.supplier_table {
+  padding-top: 20px;
+}
+
+
+.stock_table {
+
+  padding-top: 20px;
+}
