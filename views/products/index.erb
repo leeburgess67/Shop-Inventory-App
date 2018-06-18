@@ -1,8 +1,7 @@
-<head>
-  <link rel="stylesheet" href="/style.css">
-</head>
+
 <table class="stock_table">
   <tr>
+    <th>Unique <br />Product No</th>
   <th>Description</th><th>
     Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Supplier<br>ID</th><th>Current <br> Bookstock</th>
   </th><th>Stock Levels</th>
@@ -10,6 +9,9 @@
   </tr>
   <% for product in @products %>
 <tr>
+  <td>
+    <%= product.upn()  %>
+  </td>
   <td>
     <%= product.description()  %>
   </td>
@@ -23,8 +25,9 @@
     <%= product.markup()  %>
   </td>
   <td>
-    <%= product.supplier_id()  %>
+    <%= product.supplier_id  %>
   </td>
+
   <td>
     <%= product.bookstock()  %>
   </td>

@@ -43,42 +43,48 @@ product1 = Product.new({
   "cost_price" => 45,
   "retail_price" => 75,
   "bookstock" => 25,
-  "supplier_id" => supplier1.id
+  "supplier_id" => supplier1.id,
+  "upn" => 50321
   })
 product2 = Product.new({
   "description" => "Kwik Flakes",
   "cost_price" => 70,
   "retail_price" => 100,
   "bookstock" => 12,
-  "supplier_id" => supplier2.id
+  "supplier_id" => supplier2.id,
+  "upn" => 50847
   })
 product3 = Product.new({
   "description" => "Chocco Delight Digestive Biscuits",
   "cost_price" => 63,
   "retail_price" => 80,
   "bookstock" => 5,
-  "supplier_id" => supplier3.id
+  "supplier_id" => supplier3.id,
+  "upn" => 50443
   })
 product4 = Product.new({
   "description" => "Space invaders",
   "cost_price" => 8,
   "retail_price" => 20,
   "bookstock" => 67,
-  "supplier_id" => supplier4.id
+  "supplier_id" => supplier4.id,
+  "upn" => 50887
   })
 product5 = Product.new({
   "description" => "80 Tetley Teabags",
   "cost_price" => 189,
   "retail_price" => 250,
   "bookstock" => 30,
-  "supplier_id" => supplier5.id
+  "supplier_id" => supplier5.id,
+  "upn" => 50221
   })
 product6= Product.new({
   "description" => "Don't be Fusilli 300g - Pasta",
   "cost_price" => 40,
   "retail_price" => 99,
   "bookstock" => 12,
-  "supplier_id" => supplier1.id
+  "supplier_id" => supplier1.id,
+  "upn" => 50765
   })
 
 product1.save

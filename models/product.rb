@@ -5,7 +5,7 @@ require('pry-byebug')
 
 class Product
 
-  attr_reader :id, :supplier_id
+  attr_reader :id, :supplier_id, :upn
   attr_accessor :description, :cost_price, :retail_price, :bookstock
 
   def initialize(options)
@@ -15,6 +15,7 @@ class Product
     @retail_price = options['retail_price'].to_i
     @bookstock = options['bookstock'].to_i
     @supplier_id = options['supplier_id'].to_i
+    @upn = options['upn'].to_i
   end
   #CREATE
   def save()
@@ -24,14 +25,15 @@ class Product
       cost_price,
       retail_price,
       bookstock,
-      supplier_id
+      supplier_id,
+      upn
     )
     VALUES
     (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     )
     RETURNING *"
-    values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id]
+    values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id, @upn]
     product = SqlRunner.run(sql, values).first
     @id = product['id'].to_i
   end
@@ -64,13 +66,14 @@ class Product
     cost_price,
     retail_price,
     bookstock,
-    supplier_id
+    supplier_id,
+    upn
     ) =
     (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     )
-    WHERE id = $6"
-    values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id, @id]
+    WHERE id = $7"
+    values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id, @upn, @id]
     SqlRunner.run( sql, values )
   end
 

@@ -7,7 +7,8 @@ require_relative( '../models/supplier.rb' )
 also_reload( '../models/*' )
 
 get '/products/show-all' do
-  @products = Product.all() #array of hashes
+  @products = Product.all()
+  @suppliers = Supplier.all() 
   erb ( :"products/index" )
 end
 
@@ -31,6 +32,7 @@ end
 
 get '/products/:id/edit' do
   @product = Product.find(params[:id])
+  @suppliers = Supplier.all()
   erb(:"products/edit")
 end
 
