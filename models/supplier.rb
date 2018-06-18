@@ -43,7 +43,7 @@ class Supplier
     WHERE id = $1"
     values = [id]
     supplier = SqlRunner.run( sql, values )
-    result = Supplier.new( product.first )
+    result = Supplier.new( supplier.first )
     return result
   end
 

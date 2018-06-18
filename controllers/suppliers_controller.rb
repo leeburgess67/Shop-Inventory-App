@@ -14,5 +14,5 @@ end
 
 get '/supplier/:id/edit' do
   @supplier = Supplier.find(params[:id])
-  erb ( :edit )
+  erb ( :"suppliers/edit" )
 end
