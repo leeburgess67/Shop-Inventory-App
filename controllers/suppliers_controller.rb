@@ -11,3 +11,8 @@ get '/suppliers/show-all' do
   @suppliers = Supplier.all()
   erb ( :"suppliers/index")
 end
+
+get '/supplier/:id/edit' do
+  @supplier = Supplier.find(params[:id])
+  erb ( :edit )
+end
