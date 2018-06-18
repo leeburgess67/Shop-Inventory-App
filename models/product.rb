@@ -106,9 +106,11 @@ class Product
 
   def check_stock
     return "stock-red" if @bookstock < 5
-    return "stock-amber" if @bookstock > 4
     return "stock-green" if @bookstock > 12
+    return "stock-amber" if @bookstock > 4
   end
+
+
 
 
 

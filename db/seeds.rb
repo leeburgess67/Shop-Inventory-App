@@ -2,8 +2,8 @@ require_relative( "../models/product.rb" )
 require_relative( "../models/supplier.rb" )
 require("pry")
 
-Supplier.delete_all()
 Product.delete_all()
+Supplier.delete_all()
 
 supplier1 = Supplier.new({
   "name" => "Cool Beanz Co",

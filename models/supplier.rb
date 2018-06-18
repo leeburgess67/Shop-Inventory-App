@@ -10,7 +10,7 @@ class Supplier
     @id = options['id'].to_i
     @name = options['name']
     @email = options['email']
-    @phone = options['phone'].to_i
+    @phone = options['phone']
   end
 
   #CREATE

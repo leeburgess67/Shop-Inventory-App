@@ -1,9 +1,11 @@
-
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
 <table>
   <tr>
   <th>Description</th><th>
     Cost Price</th><th>Retail Price</th><th>Item Markup</th><th>Supplier ID</th><th>Current Bookstock</th>
-    </th>
+  </th><th>Stock Levels</th>
   </th>
   </tr>
   <% for product in @products %>
@@ -25,6 +27,9 @@
   </td>
   <td>
     <%= product.bookstock()  %>
+  </td>
+  <td class="<%= product.check_stock %>">
+
   </td>
   <td>
   <p><a href="/products/<%= product.id %>/edit">Edit</a></p>

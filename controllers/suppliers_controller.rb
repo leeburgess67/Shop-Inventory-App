@@ -27,8 +27,8 @@ get '/suppliers/new' do
   erb ( :"suppliers/new")
 end
 
-post '/suppliers/show-new' do
+post '/suppliers' do
   @supplier = Supplier.new(params)
   @supplier.save()
-  erb ( :"suppliers/create" )
+  redirect '/suppliers/show-all'
 end

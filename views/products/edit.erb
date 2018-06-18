@@ -34,7 +34,11 @@
 
 
   <input type='submit' value="Submit">
-  <input method="post" input type="submit" value="Delete Product" action="/products/<%= @product.id %>/delete" />
 
+
+
+</form>
+  <form method = "post" action="/products/<%= @product.id %>/delete" >
+  <input type="submit" value="Delete Product" />
 
 </form>
