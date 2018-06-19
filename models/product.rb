@@ -91,6 +91,14 @@ class Product
     SqlRunner.run( sql, values )
   end
 
+  def supplier()
+    sql = "SELECT * FROM suppliers
+    WHERE id = $1"
+    values = [@supplier_id]
+    result = SqlRunner.run( sql, values ) #an array of
+    Supplier.new( result.first ) 
+  end
+
 
   def sell(qty)
     @bookstock -= qty
@@ -129,11 +137,6 @@ class Product
     return total
   end
 
-  def return_supplier_name
-    if @supplier_id == @supplier.id
-      return @supplier.name
-    end
-  end
 
 
 end
