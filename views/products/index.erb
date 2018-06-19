@@ -3,7 +3,7 @@
   <tr>
     <th>Unique <br/>Product No</th>
   <th>Description</th><th>
-    Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Supplier<br>ID</th><th>Current <br> Bookstock</th>
+    Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Supplier<br>ID</th><th>Current <br> Bookstock</th><th></th><th>Qty<br>Sold</th><th>Qty<br> Delivered</th>
   </th>
   </tr>
   <% for product in @products %>
@@ -15,10 +15,10 @@
 
   </td>
   <td>
-    <%= product.cost_price() %>
+    <%= product.cost_price().to_f %>
   </td>
   <td>
-    <%= product.retail_price()  %>
+    <%= product.retail_price().to_f  %>
   </td>
   <td>
     <%= product.markup()  %>
@@ -35,7 +35,7 @@
   </td>
   <td>
     <form class="sold" action="/products/<%= product.id %>/sell" method="post">
-      <label for="qty-field">Enter Qty Sold:</label>
+      <label for="qty-field"></label>
       <input
       type="number"
       name="qty"
@@ -44,7 +44,7 @@
   </td>
   <td>
     <form class="delivered" action="/products/<%= product.id %>/delivered" method="post">
-      <label for="delivered-field">Enter Qty Delivered:</label>
+      <label for="delivered-field"></label>
       <input
       type="number"
       name="delivered"

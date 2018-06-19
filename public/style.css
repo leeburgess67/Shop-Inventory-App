@@ -69,9 +69,18 @@ nav a:hover {
   margin-top: 25px;
   font-size: 1.3em;
 }
-input[type="number"], input[type="text"], select {
+input[type="text"], select {
   display: block;
   height: 25px;
-  font-size: 1.2em;
+  font-size: 1em;
   margin-bottom: 0.8em;
+}
+
+input[type="number"] {
+  display: block;
+  height: 25px;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+  width: 60px
+
 }
