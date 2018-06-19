@@ -133,14 +133,7 @@ class Product
     return "Low" if @bookstock > 4
   end
 
-  def stockholding_value_cost_price
-    @products = Product.all
-    total = 0
-    for product in @products
-      total += product.cost_price
-    end
-    return total
-  end
+
 
 
 

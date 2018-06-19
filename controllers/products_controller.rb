@@ -6,7 +6,7 @@ require_relative( '../models/shop.rb' )
 require_relative( '../models/supplier.rb' )
 also_reload( '../models/*' )
 
-# TODO: refactor for /products
+
 get '/products' do
   @products = Product.all()
   @suppliers = Supplier.all()
@@ -25,7 +25,7 @@ post '/products/:id/delete' do
   redirect to '/products'
 end
 
-# TODO: refactor for /products
+
 post '/products' do
   @product = Product.new( params )
   @product.save()
@@ -55,4 +55,12 @@ post '/products/:id/delivered' do
   product = Product.find(params[:id].to_i)
   product.delivered(params[:delivered].to_i)
   redirect '/products'
+end
+
+get '/stockholding' do
+  items = Product.all()
+  @shop = Shop.new(items)
+  @shop.stockholding_value_cost_price
+  @shop.stockholding_value_retail_price
+  erb ( :'KPI/index' )
 end
