@@ -50,3 +50,9 @@ post '/products/:id/sell' do
   product.sell(params[:qty].to_i)
   redirect '/products'
 end
+
+post '/products/:id/delivered' do
+  product = Product.find(params[:id].to_i)
+  product.delivered(params[:delivered].to_i)
+  redirect '/products'
+end

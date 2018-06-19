@@ -4,7 +4,7 @@
     <th>Unique <br/>Product No</th>
   <th>Description</th><th>
     Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Supplier<br>ID</th><th>Current <br> Bookstock</th>
-  </th><th>Stock Levels</th> <th>Qty Sold</th>
+  </th><th>Stock Levels</th> <th>Qty Sold</th><th>Qty Delivered</th>
   </th>
   </tr>
   <% for product in @products %>
@@ -42,6 +42,17 @@
       name="qty"
       id="qty-field"><input type='submit' value="Submit">
     </form>
+  </td>
+  <td>
+    <form class="delivered" action="/products/<%= product.id %>/delivered" method="post">
+      <label for="delivered-field">Enter Qty Delivered:</label>
+      <input
+      type="number"
+      name="delivered"
+      id="delivered-field"><input type='submit' value="Submit">
+
+
+
   </td>
   <td>
   <p><a href="/products/<%= product.id %>/edit">Edit</a></p>

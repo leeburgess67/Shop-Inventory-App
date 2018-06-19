@@ -96,12 +96,17 @@ class Product
     WHERE id = $1"
     values = [@supplier_id]
     result = SqlRunner.run( sql, values ) #an array of
-    Supplier.new( result.first ) 
+    Supplier.new( result.first )
   end
 
 
   def sell(qty)
     @bookstock -= qty
+    update()
+  end
+
+  def delivered(qty)
+    @bookstock += qty
     update()
   end
 
