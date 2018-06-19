@@ -7,7 +7,7 @@ require_relative( '../models/supplier.rb' )
 also_reload( '../models/*' )
 
 
-get '/suppliers/show-all' do
+get '/suppliers' do
   @suppliers = Supplier.all()
   erb ( :"suppliers/index")
 end
@@ -20,12 +20,12 @@ end
 post '/suppliers/:id/delete' do
   supplier = Supplier.find( params[:id] )
   supplier.delete()
-  redirect to '/suppliers/show-all'
+  redirect to '/suppliers'
 end
 
 post '/suppliers/:id' do
   Supplier.new(params).update
-  redirect '/suppliers/show-all'
+  redirect '/suppliers'
 end
 
 get '/suppliers/new' do
@@ -36,5 +36,5 @@ end
 post '/suppliers' do
   @supplier = Supplier.new(params)
   @supplier.save()
-  redirect '/suppliers/show-all'
+  redirect '/suppliers'
 end
