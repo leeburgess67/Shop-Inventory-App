@@ -92,17 +92,16 @@ class Product
   end
 
 
-  def sold(qty)
+  def sell(qty)
     @bookstock -= qty
-    return @bookstock
-    # value = @retail_price.to_i * qty.to_i
-    # return shop.takings += value
+    update()
   end
 
   def refund(qty, shop)
     @bookstock += qty
     value = @retail_price.to_i * qty.to_i
     return shop.takings -= value
+    binding.pry
   end
 
   def markup

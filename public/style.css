@@ -28,14 +28,17 @@ nav a:hover {
 
 .stock-green {
   background-color: green;
+  justify-content: center;
 }
 
 .stock-amber {
-  background-color: rgb(255, 168, 0)
+  background-color: rgb(255, 168, 0);
+  justify-content: center;
 }
 
 .stock-red {
   background-color: red;
+  justify-content: center;
 }
 
 .supplier_table {
@@ -68,7 +71,7 @@ nav a:hover {
 }
 input[type="number"], input[type="text"], select {
   display: block;
-  height: 30px;
+  height: 25px;
   font-size: 1.2em;
   margin-bottom: 0.8em;
 }

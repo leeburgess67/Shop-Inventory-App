@@ -32,10 +32,10 @@
     <%= product.bookstock()  %>
   </td>
   <td class="<%= product.check_stock %>">
-    <%= product.return_stock_warning %> 
+    <%= product.return_stock_warning %>
   </td>
   <td>
-    <form class="sold" action="/products/:id" method="post">
+    <form class="sold" action="/products/<%= product.id %>/sell" method="post">
       <label for="qty-field">Enter Qty Sold:</label>
       <input
       type="number"

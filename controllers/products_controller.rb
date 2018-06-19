@@ -6,6 +6,7 @@ require_relative( '../models/shop.rb' )
 require_relative( '../models/supplier.rb' )
 also_reload( '../models/*' )
 
+# TODO: refactor for /products
 get '/products/show-all' do
   @products = Product.all()
   @suppliers = Supplier.all()
@@ -24,7 +25,7 @@ post '/products/:id/delete' do
   redirect to '/products/show-all'
 end
 
-
+# TODO: refactor for /products
 post '/products/show-all' do
   @product = Product.new( params )
   @product.save()
@@ -39,7 +40,13 @@ end
 
 post '/products/:id' do
   @product = Product.find(params[:id])
-  result = product.sold(params[:qty])
+  result = @product.sold(params[:qty])
   Product.new(params).update
+  redirect '/products/show-all'
+end
+
+post '/products/:id/sell' do
+  product = Product.find(params[:id].to_i)
+  product.sell(params[:qty].to_i)
   redirect '/products/show-all'
 end
