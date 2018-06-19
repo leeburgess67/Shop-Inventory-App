@@ -38,12 +38,6 @@ get '/products/:id/edit' do
   erb(:"products/edit")
 end
 
-post '/products/:id' do
-  @product = Product.find(params[:id])
-  result = @product.sold(params[:qty])
-  Product.new(params).update
-  redirect '/products'
-end
 
 post '/products/:id/sell' do
   product = Product.find(params[:id].to_i)
@@ -51,6 +45,12 @@ post '/products/:id/sell' do
   redirect '/products'
 end
 
+post '/products/:id' do
+  @product = Product.find(params[:id])
+  # result = @product.sell(params[:qty])
+  Product.new(params).update
+  redirect '/products'
+end
 post '/products/:id/delivered' do
   product = Product.find(params[:id].to_i)
   product.delivered(params[:delivered].to_i)
