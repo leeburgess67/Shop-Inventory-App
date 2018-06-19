@@ -6,5 +6,7 @@ require_relative( 'controllers/suppliers_controller.rb' )
 also_reload( '../models/*' )
 
 get '/' do
+  products = Product.all()
+  @shop = Shop.new(products)
   erb ( :"index" )
 end

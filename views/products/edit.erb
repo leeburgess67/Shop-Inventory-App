@@ -1,43 +1,57 @@
-<form method="post" action="/products/<%= @product.id %>">
-
-  <label for="description-field">Description:</label>
-  <input
-  type="text"
-  name="description"
-  id="description-field"
-  value="<%= @product.description %>"
-  />
-
-  <label for="cost_price-field">Cost Price:</label>
-  <input
-  type="number"
-  name="cost_price"
-  id="cost_price-field"
-  value="<%= @product.cost_price %>"
-  />
-
-  <label for="retail_price-field">Retail Price:</label>
-  <input
-  type="number"
-  name="retail_price"
-  id="retail_price-field"
-  value="<%= @product.retail_price %>"
-  />
-
-  <label for="supplier_id-field">Supplier ID:</label>
-  <select id="supplier" name="supplier">
-    <% for supplier in @suppliers  %>
-    <option value="<%=supplier.name %>"><%=supplier.name %></option>
-    <% end  %>
-  </select>
+<div class="edit_form">
+  <form method="post" action="/products/<%= @product.id %>">
 
 
-  <input type='submit' value="Submit">
+    <label for="upn-field">Unique Product No:</label>
+    <input
+    readonly="readonly"
+    type="number"
+    name="upn"
+    id="upn-field"
+    value="<%= @product.upn %>"
+    />
+    <br>
 
 
+    <label for="description-field">Description:</label>
+    <input
+    type="text"
+    name="description"
+    id="description-field"
+    value="<%= @product.description %>"
+    />
+    <br>
 
-</form>
+    <label for="cost_price-field">Cost Price:</label>
+    <input
+    type="number"
+    name="cost_price"
+    id="cost_price-field"
+    value="<%= @product.cost_price %>"
+    />
+    <br>
+
+    <label for="retail_price-field">Retail Price:</label>
+    <input
+    type="number"
+    name="retail_price"
+    id="retail_price-field"
+    value="<%= @product.retail_price %>"
+    />
+    <br>
+
+    <label for="supplier">Supplier ID:</label>
+    <select id="supplier" name="supplier_id">
+      <% for supplier in @suppliers  %>
+      <option value="<%=supplier.id %>"><%=supplier.name %></option>
+      <% end  %>
+    </select>
+    <br>
+    <input type='submit' value="Submit">
+
+  </form>
   <form method = "post" action="/products/<%= @product.id %>/delete" >
-  <input type="submit" value="Delete Product" />
+    <input type="submit" value="Delete Product" />
 
-</form>
+  </form>
+</div>

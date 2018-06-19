@@ -8,12 +8,13 @@ also_reload( '../models/*' )
 
 get '/products/show-all' do
   @products = Product.all()
-  @suppliers = Supplier.all() 
+  @suppliers = Supplier.all()
   erb ( :"products/index" )
 end
 
 get '/products/new' do
   @products = Product.all
+  @suppliers = Supplier.all()
   erb ( :"products/new" )
 end
 
@@ -37,6 +38,8 @@ get '/products/:id/edit' do
 end
 
 post '/products/:id' do
+  @product = Product.find(params[:id])
+  result = product.sold(params[:qty])
   Product.new(params).update
   redirect '/products/show-all'
 end

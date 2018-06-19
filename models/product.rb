@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('./shop.rb')
+require_relative('./supplier.rb')
 require('pry-byebug')
 
 
@@ -91,10 +92,11 @@ class Product
   end
 
 
-  def sold(qty, shop)
+  def sold(qty)
     @bookstock -= qty
-    value = @retail_price.to_i * qty.to_i
-    return shop.takings += value
+    return @bookstock
+    # value = @retail_price.to_i * qty.to_i
+    # return shop.takings += value
   end
 
   def refund(qty, shop)
@@ -113,18 +115,26 @@ class Product
     return "stock-amber" if @bookstock > 4
   end
 
+  def return_stock_warning
+    return "Warning" if @bookstock < 5
+    return "Ok" if @bookstock > 12
+    return "Low" if @bookstock > 4
+  end
 
+  def stockholding_value_cost_price
+    @products = Product.all
+    total = 0
+    for product in @products
+      total += product.cost_price
+    end
+    return total
+  end
 
-
-
-
-
-
-
-
-
-
-
+  def return_supplier_name
+    if @supplier_id == @supplier.id
+      return @supplier.name
+    end
+  end
 
 
 end

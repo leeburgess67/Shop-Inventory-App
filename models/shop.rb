@@ -1,16 +1,15 @@
 require_relative('../db/sql_runner')
+require_relative('./product.rb')
 require('pry')
 
 class Shop
 
-  attr_reader :id
-  attr_accessor :name, :takings, :stockholding_value_cost_price, :stockholding_value_retail_price
 
-  def initialize(options)
-    @name = options['name']
-    @takings = options['takings']
-    @stockholding_value_cost_price = options['stockholding_value_cost_price']
-    @stockholding_value_retail_price = options['stockholding_value_retail_price']
+  attr_accessor :items
+
+  def initialize(items)
+    @items = items
   end
+
 
 end

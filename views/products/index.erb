@@ -1,10 +1,10 @@
 
 <table class="stock_table">
   <tr>
-    <th>Unique <br />Product No</th>
+    <th>Unique <br/>Product No</th>
   <th>Description</th><th>
     Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Supplier<br>ID</th><th>Current <br> Bookstock</th>
-  </th><th>Stock Levels</th>
+  </th><th>Stock Levels</th> <th>Qty Sold</th>
   </th>
   </tr>
   <% for product in @products %>
@@ -12,8 +12,8 @@
   <td>
     <%= product.upn()  %>
   </td>
-  <td>
-    <%= product.description()  %>
+  <td> <a href="/products/<%= product.id %>/edit"><%= product.description()  %></a>
+
   </td>
   <td>
     <%= product.cost_price() %>
@@ -32,7 +32,16 @@
     <%= product.bookstock()  %>
   </td>
   <td class="<%= product.check_stock %>">
-
+    <%= product.return_stock_warning %> 
+  </td>
+  <td>
+    <form class="sold" action="/products/:id" method="post">
+      <label for="qty-field">Enter Qty Sold:</label>
+      <input
+      type="number"
+      name="qty"
+      id="qty-field"><input type='submit' value="Submit">
+    </form>
   </td>
   <td>
   <p><a href="/products/<%= product.id %>/edit">Edit</a></p>
