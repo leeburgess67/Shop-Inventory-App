@@ -8,34 +8,45 @@ require_relative("../shop.rb")
 class TestShop < MiniTest::Test
 
   def setup
+
     options = ({
-      "name" => "ShopQwik",
-      "takings" => 500,
-      "stockholding_value_cost_price" => 0,
-      "stockholding_value_retail_price" => 0
-    })
-    @shop = Shop.new(options)
+      "name" => "Cool Beanz Co",
+      "email" => "coolbeanz@unilever.com",
+      'id' => 1
+      })
+      @supplier1 = Supplier.new(options)
+
+  options = ({
+    "description" => "Heinz Baked Beans",
+      "cost_price" => 45,
+      "retail_price" => 75,
+      "bookstock" => 25,
+      "supplier_id" => @supplier1.id
+      })
+
+      @product1 = Product.new(options)
+  options = ({
+    "description" => "Heinz",
+      "cost_price" => 33,
+      "retail_price" => 75,
+      "bookstock" => 25,
+      "supplier_id" => @supplier1.id
+      })
+
+      @product2 = Product.new(options )
+
+      items = [@product1, @product2]
+  @shop = Shop.new(items)
   end
 
-  def test_get_shop_name
-    result = @shop.name()
-    assert_equal("ShopQwik", result)
+  def test_shop_has_items
+    result = @shop.items()
+    assert_equal([@product1, @product2], result)
   end
 
-  def test_get_shop_takings
-    result = @shop.takings()
-    assert_equal(500, result)
-  end
 
-  def test_get_shop_stockholding__cost
-    result = @shop.stockholding_value_cost_price()
-    assert_equal(0, result)
-  end
 
-  def test_get_shop_stockholding__retail
-    result = @shop.stockholding_value_retail_price()
-    assert_equal(0, result)
-  end
+
 
 
 

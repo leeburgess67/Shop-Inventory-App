@@ -28,8 +28,6 @@ class TestProduct < MiniTest::Test
     options = ({
       "name" => "ShopQwik",
       "takings" => 0,
-      "stockholding_value_cost_price" => 0,
-      "stockholding_value_retail_price" => 0
     })
     @shop = Shop.new(options)
 
@@ -83,6 +81,15 @@ class TestProduct < MiniTest::Test
   @product1.refund(1, @shop)
   result = @shop.takings
   assert_equal(-75, result)
+  end
+
+  def test_calculate_cost_value_stockholding
+    @products = Product.all
+    total = 0
+    for product in @products
+      total += product.cost_price
+    end
+    return total
   end
 
 
