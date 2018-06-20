@@ -22,16 +22,16 @@ class Product
   def save()
     sql = "INSERT INTO products
     (
-      description,
-      cost_price,
-      retail_price,
-      bookstock,
-      supplier_id,
-      upn
+    description,
+    cost_price,
+    retail_price,
+    bookstock,
+    supplier_id,
+    upn
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6
+    $1, $2, $3, $4, $5, $6
     )
     RETURNING *"
     values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id, @upn]
@@ -46,7 +46,6 @@ class Product
     result =  products.map { |product| Product.new( product ) }
   end
 
-
   def self.find( id )
     sql = "SELECT * FROM products
     WHERE id = $1"
@@ -56,6 +55,13 @@ class Product
     return result
   end
 
+  def supplier()
+    sql = "SELECT * FROM suppliers
+    WHERE id = $1"
+    values = [@supplier_id]
+    result = SqlRunner.run( sql, values ) #an array of
+    Supplier.new( result.first )
+  end
 
 
   #UPDATE
@@ -71,7 +77,7 @@ class Product
     upn
     ) =
     (
-      $1, $2, $3, $4, $5, $6
+    $1, $2, $3, $4, $5, $6
     )
     WHERE id = $7"
     values = [@description, @cost_price, @retail_price, @bookstock, @supplier_id, @upn, @id]
@@ -91,15 +97,8 @@ class Product
     SqlRunner.run( sql, values )
   end
 
-  def supplier()
-    sql = "SELECT * FROM suppliers
-    WHERE id = $1"
-    values = [@supplier_id]
-    result = SqlRunner.run( sql, values ) #an array of
-    Supplier.new( result.first )
-  end
 
-
+  #METHODS
   def sell(qty)
     @bookstock -= qty
     update()
@@ -118,7 +117,7 @@ class Product
   end
 
   def markup
-      return  @retail_price - @cost_price
+    return  @retail_price - @cost_price
   end
 
   def check_stock
@@ -134,7 +133,6 @@ class Product
   end
 
   def get_markup_percentage
-    
     markup_percentage = ((markup/@cost_price.to_f) * 100.0).round(0)
     return "#{markup_percentage}%"
   end
@@ -143,6 +141,7 @@ class Product
     return "£#{number}"
   end
 
+  #CLASS METHODS
   def self.find_by_upn(upn)
     sql = "SELECT * FROM products
     WHERE upn = $1"
