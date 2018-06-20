@@ -44,7 +44,7 @@ class Shop
       @cost_total = cost_total
       result = (@retail_total - @cost_total)
     end
-      return convert_to_cash(result)
+    return convert_to_cash(result)
   end
 
 

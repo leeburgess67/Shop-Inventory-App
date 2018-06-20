@@ -3,17 +3,17 @@ html {
   background-color: #cff09e
 
 }
-.upn-search {
 
-}
-
-.upn-field {
-
+.home {
+  font-family: 'Josefin Sans';
+  font-size: 20em;
+  text-align: center;
 }
 
 nav {
-
+  font-size: 1.4em;
 }
+
 nav ul  {
   list-style-type: none;
   padding: 0;
@@ -106,7 +106,7 @@ input[type="text"], select {
   height: 25px;
   font-size: 1em;
   margin-bottom: 0.8em;
-  width: 60px
+  width: 79px
 }
 
 .delivered_box[type="number"] {
@@ -114,7 +114,7 @@ input[type="text"], select {
   height: 25px;
   font-size: 1em;
   margin-bottom: 0.8em;
-  width: 60px
+  width: 79px
 }
 
 input[type="number"] {
@@ -125,20 +125,21 @@ input[type="number"] {
   width: 100px
 
 }
-
+th {
+  font-size: 1.3em;
+}
 
 td {
   text-align: center;
-
+  font-size: 1.3em
 }
-
 .upn {
   display: block;
 
 }
 
 .returned_profit {
-  font-size: 2em;
+  font-size: 1.7em;
 
 }
 
@@ -157,7 +158,7 @@ td {
   height: 25px;
 }
 .small-btn-submit {
-  width: 66px;
+  width: 79px;
   height:25px;
 }
 
@@ -184,7 +185,8 @@ td {
 }
 
 div.stockholding-text {
-  text-align: center;
+  text-align: left;
+  font-size: 1.5em;
 }
 
 

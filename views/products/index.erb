@@ -2,6 +2,7 @@
 <form class="upn" action="/products/search" method="post">
   <label for="upn-field"></label>
   <input class="upn-text"
+  required
   align="center"
   type="number"
   name="upn"
@@ -12,7 +13,7 @@
   <tr>
     <th>Unique <br/>Product No</th>
   <th>Description</th><th>
-    Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Markup %</th><th>Supplier<br>ID</th><th>Current <br> Bookstock</th><th></th><th>Qty<br>Sold</th><th>Qty<br> Delivered</th>
+    Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Markup %</th><th>Supplier</th><th>Current <br> Bookstock</th><th></th><th>Qty<br>Sold</th><th>Qty<br> Delivered</th>
   </th>
   </tr>
   <% for product in @products %>
@@ -64,7 +65,7 @@
   </form>
   </td>
   <td>
-  <p><a href="/products/<%= product.id %>/edit">Edit</a></p>
+  <p><a href="/products/<%= product.id %>/edit">Edit Product</a></p>
   </td>
 </tr>
 <% end  %>
