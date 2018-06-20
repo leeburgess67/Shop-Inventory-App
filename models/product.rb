@@ -146,9 +146,13 @@ class Product
     sql = "SELECT * FROM products
     WHERE upn = $1"
     values = [upn.to_i]
-    result = SqlRunner.run(sql, values).first
-    product = Product.new(result)
-    return product
+    result = SqlRunner.run(sql, values)
+    if result.ntuples == 0
+      return nil
+    else
+      product = Product.new(result.first)
+      return product
+    end
   end
 
 end

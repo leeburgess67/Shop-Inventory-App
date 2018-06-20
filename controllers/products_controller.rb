@@ -49,7 +49,11 @@ end
 
 post "/products/search" do
   @product = Product.find_by_upn(params['upn'])
-  erb ( :"/products/show" )
+  if @product
+    erb ( :"/products/show" )
+  else
+    erb ( :"/products/not_found")
+  end
 end
 
 post '/products/:id' do
