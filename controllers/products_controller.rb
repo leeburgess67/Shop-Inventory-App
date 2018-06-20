@@ -41,7 +41,7 @@ end
 
 
 post '/products/:id/sell' do
-  @product = Product.find(params[:id].to_i)
+  product = Product.find(params[:id].to_i)
   product.sell(params[:qty].to_i)
   redirect '/products'
 end

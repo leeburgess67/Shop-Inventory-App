@@ -3,6 +3,10 @@ html {
   background-color: #cff09e
 
 }
+
+nav {
+
+}
 nav ul  {
   list-style-type: none;
   padding: 0;
@@ -33,6 +37,9 @@ nav a:hover {
 .stock-green {
   background-color: green;
   justify-content: center;
+  font-weight: bold;
+
+
 }
 
 .stock-amber {
@@ -46,7 +53,11 @@ nav a:hover {
 }
 
 .supplier_table {
-  padding-top: 20px;
+  padding: 20px 10px;
+  border-style: solid;
+  font-size: 1.3em;
+
+  margin-left: 30px;
 
 }
 
@@ -82,12 +93,21 @@ input[type="text"], select {
 
 
 
-.sold[type="number"] {
+.sold_box[type="number"] {
   display: block;
   height: 25px;
   font-size: 1em;
   margin-bottom: 0.8em;
-  width: 60px }
+  width: 60px
+}
+
+.delivered_box[type="number"] {
+  display: block;
+  height: 25px;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+  width: 60px
+ }
 
 input[type="number"] {
   display: block;
@@ -106,5 +126,10 @@ td {
 
 .upn {
   display: block;
+
+}
+
+.returned_profit {
+  font-size: 2em;
 
 }

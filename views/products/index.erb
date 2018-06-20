@@ -7,7 +7,7 @@
   id="upn-field"><input type='submit' value="Submit">
 </form>
 
-<table class="stock_table">
+<table class="stock_table" >
   <tr>
     <th>Unique <br/>Product No</th>
   <th>Description</th><th>
@@ -47,7 +47,7 @@
   <td>
     <form class="sold" action="/products/<%= product.id %>/sell" method="post">
       <label for="qty-field"></label>
-      <input
+      <input class="sold_box"
       type="number"
       name="qty"
       id="qty-field"><input type='submit' value="Submit">
@@ -56,7 +56,7 @@
   <td>
     <form class="delivered" action="/products/<%= product.id %>/delivered" method="post">
       <label for="delivered-field"></label>
-      <input
+      <input class="delivered_box"
       type="number"
       name="delivered"
       id="delivered-field"><input type='submit' value="Submit">

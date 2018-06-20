@@ -1,15 +1,16 @@
 
-<table class="supplier_table">
+<table class="supplier_table" align="left">
   <tr>
-  <th>Name</th><th>
-    Email</th><th>Phone</th>
+    <th>Name</th><th>
+      Email</th><th>Phone</th>
     </th>
   </th>
-  </tr>
-  <% for supplier in @suppliers %>
+</tr>
+<% for supplier in @suppliers %>
 <tr>
   <td>
-    <%= supplier.name()  %>
+    <a href="/suppliers/<%= supplier.id %>/edit">  <%= supplier.name()  %></a>
+
   </td>
   <td>
     <%= supplier.email()%>
@@ -19,7 +20,7 @@
   </td>
 
   <td>
-  <p><a href="/suppliers/<%= supplier.id %>/edit">Edit</a></p>
+    <p><a href="/suppliers/<%= supplier.id %>/edit">Edit</a></p>
   </td>
 </tr>
 <% end  %>

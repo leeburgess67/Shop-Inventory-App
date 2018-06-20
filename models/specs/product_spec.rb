@@ -8,28 +8,24 @@ require_relative("../shop.rb")
 class TestProduct < MiniTest::Test
 
   def setup
-    options = ({
-      "name" => "Cool Beanz Co",
-      "email" => "coolbeanz@unilever.com",
-      'id' => 1
+    supplier1 = Supplier.new({
+      "name" => "Fender UK",
+      "email" => "sales@fender.co.uk",
+      "phone" => "01311346542"
     })
-    @supplier1 = Supplier.new(options)
 
-    options = ({
-      "description" => "Heinz Baked Beans",
-      "cost_price" => 45,
-      "retail_price" => 75,
-      "bookstock" => 25,
-      "supplier_id" => @supplier1.id
+    product1 = Product.new({
+      "description" => "Gibson Les Paul Standard",
+      "cost_price" => 1000,
+      "retail_price" => 1500,
+      "bookstock" => 3,
+      "supplier_id" => supplier2.id,
+      "upn" => 50321
       })
 
-    @product1 = Product.new(options)
+      items = [@product1, @product2]
+  @shop = Shop.new(items)
 
-    options = ({
-      "name" => "ShopQwik",
-      "takings" => 0,
-    })
-    @shop = Shop.new(options)
 
   end
 
