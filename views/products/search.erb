@@ -1,10 +1,8 @@
-<%for product in @products  %>
-<form class="upn" action="/products/<%= product.upn %>/search" method="post">
+
+<form class="upn" action="/products/search" method="post">
   <label for="upn-field"></label>
   <input
   type="number"
   name="upn"
   id="upn-field"><input type='submit' value="Submit">
 </form>
-
-<% end %> 

@@ -46,6 +46,12 @@ post '/products/:id/sell' do
   redirect '/products'
 end
 
+
+post "/products/search" do
+  @product = Product.find_by_upn(params['upn'])
+  erb ( :"/products/show" )
+end
+
 post '/products/:id' do
   @product = Product.find(params[:id])
   Product.new(params).update
@@ -75,10 +81,4 @@ get '/stockholding' do
   @shop.stockholding_value_cost_price
   @shop.stockholding_value_retail_price
   erb ( :'KPI/index' )
-end
-
-
-post "/products/:upn/search" do
-  @product = Product.find_by_upn(params['upn'])
-  erb ( :"/products/show" )
 end
