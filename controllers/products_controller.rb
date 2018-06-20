@@ -82,7 +82,5 @@ end
 get '/stockholding' do
   items = Product.all()
   @shop = Shop.new(items)
-  @shop.stockholding_value_cost_price
-  @shop.stockholding_value_retail_price
   erb ( :'KPI/index' )
 end
