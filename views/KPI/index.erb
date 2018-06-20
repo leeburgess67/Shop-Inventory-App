@@ -1,5 +1,11 @@
+<div class="stockholding-text">
+
+
 <h1>Total Current Stockholding Value - Cost: </h1>
 <%= @shop.stockholding_value_cost_price %>
 <h1>Total Current Stockholding Value - Retail: </h1>
 <%= @shop.stockholding_value_retail_price %>
-<h1 class ="returned_profit">Current projected profit:<br> <%=@shop.calculate_profit  %>
+
+<h1 class ="returned_profit">Current projected profit:<br> <%= @shop.calculate_profit  %>
+
+</div>

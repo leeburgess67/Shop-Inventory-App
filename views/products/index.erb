@@ -1,10 +1,11 @@
-<h1>UPN Quick Search:</h1>
+<h1 class="upn-search">UPN Quick Search:</h1>
 <form class="upn" action="/products/search" method="post">
   <label for="upn-field"></label>
-  <input
+  <input class="upn-text"
+  align="center"
   type="number"
   name="upn"
-  id="upn-field"><input type='submit' value="Submit">
+  id="upn-field"><input class="big-btn-index" type='submit' value="Submit">
 </form>
 
 <table class="stock_table" >
@@ -50,7 +51,7 @@
       <input class="sold_box"
       type="number"
       name="qty"
-      id="qty-field"><input type='submit' value="Submit">
+      id="qty-field"><input class="small-btn-submit"type='submit' value="Submit">
     </form>
   </td>
   <td>
@@ -59,7 +60,7 @@
       <input class="delivered_box"
       type="number"
       name="delivered"
-      id="delivered-field"><input type='submit' value="Submit">
+      id="delivered-field"><input class="small-btn-submit" type='submit' value="Submit">
   </form>
   </td>
   <td>

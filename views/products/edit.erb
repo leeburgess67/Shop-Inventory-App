@@ -14,7 +14,7 @@
 
 
     <label for="description-field">Description:</label>
-    <input
+    <input class="description-input-box"
     type="text"
     name="description"
     id="description-field"
@@ -41,7 +41,7 @@
     <br>
 
     <label for="supplier">Supplier ID:</label>
-    <select id="supplier" name="supplier_id">
+    <select  id="supplier" name="supplier_id">
       <% for supplier in @suppliers  %>
       <option value="<%=supplier.id %>"><%=supplier.name %></option>
       <% end  %>
@@ -51,7 +51,7 @@
 
   </form>
   <form method = "post" action="/products/<%= @product.id %>/delete" >
-    <input type="submit" value="Delete Product" />
+    <input class "big-btn-index" type="submit" value="Delete Product" />
 
   </form>
 </div>

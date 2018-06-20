@@ -134,6 +134,7 @@ class Product
   end
 
   def get_markup_percentage
+    
     markup_percentage = ((markup/@cost_price.to_f) * 100.0).round(0)
     return "#{markup_percentage}%"
   end
