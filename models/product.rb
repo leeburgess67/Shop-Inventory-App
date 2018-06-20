@@ -133,5 +133,14 @@ class Product
     return "Low" if @bookstock > 1
   end
 
+  def get_markup_percentage
+    markup_percentage = ((markup/@cost_price.to_f) * 100.0).round(0)
+    return "#{markup_percentage}%"
+  end
+
+  def convert_to_cash(number)#1000
+    return "£#{number}"
+  end
+
 
 end

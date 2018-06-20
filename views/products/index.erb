@@ -3,7 +3,7 @@
   <tr>
     <th>Unique <br/>Product No</th>
   <th>Description</th><th>
-    Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Supplier<br>ID</th><th>Current <br> Bookstock</th><th></th><th>Qty<br>Sold</th><th>Qty<br> Delivered</th>
+    Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Markup %</th><th>Supplier<br>ID</th><th>Current <br> Bookstock</th><th></th><th>Qty<br>Sold</th><th>Qty<br> Delivered</th>
   </th>
   </tr>
   <% for product in @products %>
@@ -15,13 +15,16 @@
 
   </td>
   <td>
-    <%= product.cost_price().to_f %>
+    <%= product.convert_to_cash(product.cost_price()) %>
   </td>
   <td>
-    <%= product.retail_price().to_f  %>
+    <%= product.convert_to_cash(product.retail_price) %>
   </td>
   <td>
-    <%= product.markup()  %>
+    <%= product.convert_to_cash(product.markup())  %>
+  </td>
+  <td>
+    <%= product.get_markup_percentage() %>
   </td>
   <td>
     <%= product.supplier.name %>
