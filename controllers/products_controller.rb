@@ -64,3 +64,7 @@ get '/stockholding' do
   @shop.stockholding_value_retail_price
   erb ( :'KPI/index' )
 end
+
+get "/products/check" do
+
+end
