@@ -41,7 +41,7 @@ class Product
 
   #READ
   def self.all()
-    sql = "SELECT * FROM products"
+    sql = "SELECT * FROM products ORDER BY bookstock"
     products = SqlRunner.run( sql )
     result =  products.map { |product| Product.new( product ) }
   end

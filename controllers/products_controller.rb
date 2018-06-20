@@ -7,11 +7,9 @@ require_relative( '../models/supplier.rb' )
 also_reload( '../models/*' )
 
 
-
 get '/products' do
   @products = Product.all()
   @suppliers = Supplier.all()
-  @shop = Shop.new(@products)
   erb ( :"products/index" )
 end
 
