@@ -142,5 +142,13 @@ class Product
     return "£#{number}"
   end
 
+  def self.find_by_upn(upn)
+    sql = "SELECT * FROM products
+    WHERE upn = $1"
+    values = [upn.to_i]
+    result = SqlRunner.run(sql, values).first
+    product = Product.new(result)
+    return product
+  end
 
 end

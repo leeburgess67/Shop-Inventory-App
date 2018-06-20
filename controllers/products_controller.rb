@@ -41,17 +41,28 @@ end
 
 
 post '/products/:id/sell' do
-  product = Product.find(params[:id].to_i)
+  @product = Product.find(params[:id].to_i)
   product.sell(params[:qty].to_i)
   redirect '/products'
 end
 
 post '/products/:id' do
   @product = Product.find(params[:id])
-  # result = @product.sell(params[:qty])
   Product.new(params).update
   redirect '/products'
 end
+
+get "/products/search" do
+  @products = Product.all
+  erb (:'products/search')
+end
+
+post '/products/:id/check-stock' do
+  product = Product.find(params[:id])
+  Product.new(params).update
+  redirect '/products'
+end
+
 post '/products/:id/delivered' do
   product = Product.find(params[:id].to_i)
   product.delivered(params[:delivered].to_i)
@@ -66,6 +77,8 @@ get '/stockholding' do
   erb ( :'KPI/index' )
 end
 
-get "/products/check" do
 
+post "/products/:upn/search" do
+  @product = Product.find_by_upn(params['upn'])
+  erb ( :"/products/show" )
 end

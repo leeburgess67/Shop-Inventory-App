@@ -82,7 +82,7 @@ input[type="text"], select {
 
 
 
-.sold [type="number"] {
+.sold[type="number"] {
   display: block;
   height: 25px;
   font-size: 1em;
