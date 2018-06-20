@@ -75,7 +75,7 @@ class TestProduct < MiniTest::Test
 
   def test_get_supplier_id()
     result = @product1.supplier_id()
-    assert_equal(2, result)
+    assert_equal(0, result)
   end
 
 
