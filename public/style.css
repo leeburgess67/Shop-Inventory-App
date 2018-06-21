@@ -32,8 +32,9 @@ nav a:hover {
   background-color: #a8dba8;
 }
 
-.a {
+table.a {
   text-decoration: none;
+  color: rgb(94, 61, 163);
 }
 .stock {
 
@@ -131,7 +132,12 @@ th {
 
 td {
   text-align: center;
-  font-size: 1.3em
+  font-size: 1.3em;
+
+}
+
+td a {
+  color: rgb(51, 0, 158)
 }
 .upn {
   display: block;
@@ -176,6 +182,12 @@ td {
   width: 106px;
   height: 60px;
 }
+.big-btn-edit {
+  width: 216px;
+  height: 300px;
+  font-size: 18px;
+  cursor: pointer;
+}
 
   .big-btn-new {
   width: 200px;
@@ -183,6 +195,21 @@ td {
   font-size: 18px;
   cursor: pointer;
 }
+
+.big-btn-supplier {
+width: 216px;
+height: 300px;
+font-size: 18px;
+cursor: pointer;
+}
+
+.big-btn-supplier-delete {
+width: 216px;
+height: 300px;
+font-size: 18px;
+cursor: pointer;
+}
+
 
 div.stockholding-text {
   text-align: left;
@@ -197,4 +224,16 @@ div.stockholding-text {
 .supplier-dropdown {
   padding: 100px;
   height: 100px;
+}
+
+
+input[type="number"].supplier-phone-field {
+  width: 210px;
+  height: 20px;
+  padding: 2px
+}
+
+.supplier-selector {
+  padding: 9px;
+
 }

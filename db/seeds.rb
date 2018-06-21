@@ -30,12 +30,18 @@ supplier5 = Supplier.new({
   "email" => "sales@jackson-guitars.co.uk",
   "phone" => "019834857305"
 })
+supplier6 = Supplier.new({
+  "name" => "PRS",
+  "email" => "sales@prs.co.uk",
+  "phone" => "014194837473"
+})
 
 supplier1.save
 supplier2.save
 supplier3.save
 supplier4.save
 supplier5.save
+supplier6.save
 
 
 product1 = Product.new({
@@ -86,6 +92,38 @@ product6= Product.new({
   "supplier_id" => supplier5.id,
   "upn" => 50765
   })
+product7= Product.new({
+  "description" => "Ibanez Steve-Vai Signature",
+  "cost_price" => 1050,
+  "retail_price" => 1499,
+  "bookstock" => 4,
+  "supplier_id" => supplier5.id,
+  "upn" => 50765
+  })
+product8= Product.new({
+  "description" => "Fender American Special Stratocaster",
+  "cost_price" => 678,
+  "retail_price" => 899,
+  "bookstock" => 3,
+  "supplier_id" => supplier1.id,
+  "upn" => 50765
+  })
+product9= Product.new({
+  "description" => "Epiphone Les Paul Standard",
+  "cost_price" => 250,
+  "retail_price" => 399,
+  "bookstock" => 5,
+  "supplier_id" => supplier1.id,
+  "upn" => 50765
+  })
+product10= Product.new({
+  "description" => "PRS Mark Holcomb SE",
+  "cost_price" => 589,
+  "retail_price" => 699,
+  "bookstock" => 1,
+  "supplier_id" => supplier1.id,
+  "upn" => 50765
+  })
 
 product1.save
 product2.save
@@ -93,3 +131,7 @@ product3.save
 product4.save
 product5.save
 product6.save
+product7.save
+product8.save
+product9.save
+product10.save

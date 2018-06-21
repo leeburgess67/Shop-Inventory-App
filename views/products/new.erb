@@ -48,7 +48,7 @@
     <br>
 
     <label for="supplier_id-field">Supplier:</label>
-    <select id="supplier" name="supplier_id">
+    <select class="supplier-selector"id="supplier" name="supplier_id">
       <% for supplier in @suppliers  %>
       <option value="<%=supplier.id %>"><%=supplier.name %></option>
       <% end  %>
