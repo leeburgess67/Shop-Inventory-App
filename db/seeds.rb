@@ -8,7 +8,7 @@ Supplier.delete_all()
 supplier1 = Supplier.new({
   "name" => "Fender UK",
   "email" => "sales@fender.co.uk",
-  "phone" => "01311346542"
+  "phone" => "01318574633"
 })
 supplier2 = Supplier.new({
   "name" => "Gibson",
@@ -23,27 +23,27 @@ supplier3 = Supplier.new({
 supplier4 = Supplier.new({
   "name" => "Ibanez",
   "email" => "wholesale@ibanez-guitars.co.uk",
-  "phone" => "080022443322"
+  "phone" => "08002244322"
 })
 supplier5 = Supplier.new({
   "name" => "Jackson",
   "email" => "sales@jackson-guitars.co.uk",
-  "phone" => "019834857305"
+  "phone" => "01984857305"
 })
 supplier6 = Supplier.new({
   "name" => "PRS",
   "email" => "sales@prs.co.uk",
-  "phone" => "014194837473"
+  "phone" => "01419837473"
 })
 supplier7 = Supplier.new({
   "name" => "Gremlin Music Supplies",
   "email" => "sales@gremlin-wholesale.co.uk",
-  "phone" => "013653757372"
+  "phone" => "01363757372"
 })
 supplier8 = Supplier.new({
   "name" => "Unique Music Solutions",
   "email" => "retail@ums.com",
-  "phone" => "013105836754"
+  "phone" => "01315836754"
 })
 
 supplier1.save
@@ -110,7 +110,7 @@ product7= Product.new({
   "retail_price" => 1499,
   "bookstock" => 4,
   "supplier_id" => supplier5.id,
-  "upn" => 50765
+  "upn" => 51445
   })
 product8= Product.new({
   "description" => "Fender American Special Stratocaster",
@@ -118,7 +118,7 @@ product8= Product.new({
   "retail_price" => 899,
   "bookstock" => 3,
   "supplier_id" => supplier6.id,
-  "upn" => 50765
+  "upn" => 53654
   })
 product9= Product.new({
   "description" => "Epiphone Les Paul Standard",
@@ -126,7 +126,7 @@ product9= Product.new({
   "retail_price" => 399,
   "bookstock" => 5,
   "supplier_id" => supplier7.id,
-  "upn" => 50765
+  "upn" => 55679
   })
 product10= Product.new({
   "description" => "PRS Mark Holcomb SE",
@@ -134,7 +134,7 @@ product10= Product.new({
   "retail_price" => 699,
   "bookstock" => 1,
   "supplier_id" => supplier8.id,
-  "upn" => 50765
+  "upn" => 56655
   })
 
 product1.save
