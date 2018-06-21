@@ -8,6 +8,10 @@ html {
   font-family: 'Josefin Sans';
   font-size: 20em;
   text-align: center;
+
+}
+.login-field {
+  text-align: center;
 }
 
 nav {
@@ -171,6 +175,10 @@ td a {
 .medium-btn {
   width: 70px;
   height: 30px;
+}
+
+.big-btn-home {
+  width: 174px;
 }
 
 .big-btn {
