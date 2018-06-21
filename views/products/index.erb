@@ -13,7 +13,7 @@
   <tr>
     <th>Unique <br/>Product No</th>
   <th>Description</th><th>
-    Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Markup %</th><th>Supplier</th><th>Current <br> Bookstock</th><th></th><th>Qty<br>Sold</th><th>Qty<br> Delivered</th>
+    Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Markup %</th><th>Supplier</th><th>Qty <br>In stock </th><th></th><th>Qty<br>Sold</th><th>Qty<br> Delivered</th>
   </th>
   </tr>
   <% for product in @products %>
@@ -51,6 +51,7 @@
       <label for="qty-field"></label>
       <input class="sold_box"
       type="number"
+      min="0"
       name="qty"
       id="qty-field"><input class="small-btn-submit"type='submit' value="Submit">
     </form>
@@ -60,6 +61,7 @@
       <label for="delivered-field"></label>
       <input class="delivered_box"
       type="number"
+      min="0"
       name="delivered"
       id="delivered-field"><input class="small-btn-submit" type='submit' value="Submit">
   </form>

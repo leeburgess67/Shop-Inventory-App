@@ -148,8 +148,10 @@ td a {
 
 }
 
-.returned_profit {
+.stockholding-values{
   font-size: 1.7em;
+  padding: 20px;
+  color: rgb(94, 61, 163);
 
 }
 
@@ -161,34 +163,41 @@ td a {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   margin:10px
+  cursor: pointer;
 }
 
 .small-btn {
   width: 50px;
   height: 25px;
+  cursor: pointer;
 }
 .small-btn-submit {
   width: 79px;
   height:25px;
+  cursor: pointer;
 }
 
 .medium-btn {
   width: 70px;
   height: 30px;
+  cursor: pointer;
 }
 
 .big-btn-home {
   width: 174px;
+  cursor: pointer;
 }
 
 .big-btn {
   width: 120px;
   height: 60px;
+  cursor: pointer;
 }
 
 .big-btn-index {
   width: 106px;
   height: 60px;
+  cursor: pointer;
 }
 .big-btn-edit {
   width: 216px;
