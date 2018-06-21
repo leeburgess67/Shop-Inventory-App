@@ -254,3 +254,9 @@ input[type="number"].supplier-phone-field {
   padding: 9px;
 
 }
+
+.add-supplier-btn {
+  width: 150px;
+}
+
+input[type="number"] .supplier-phone-field
