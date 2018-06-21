@@ -6,7 +6,7 @@ require_relative( '../models/shop.rb' )
 require_relative( '../models/supplier.rb' )
 also_reload( '../models/*' )
 
-
+#INDEX
 get '/products' do
   @products = Product.all()
   @suppliers = Supplier.all()
@@ -14,34 +14,41 @@ get '/products' do
   erb ( :"products/index" )
 end
 
+#NEW
 get '/products/new' do
   @products = Product.all
   @suppliers = Supplier.all()
   erb ( :"products/new" )
 end
 
+#EDIT
 get '/products/:id/edit' do
   @product = Product.find(params[:id])
   @suppliers = Supplier.all()
   erb(:"products/edit")
 end
 
+#SHOW
 get "/products/search" do
   @products = Product.all
   erb (:'products/search')
 end
 
-get "/products/search" do
-  @products = Product.all
-  erb (:'products/search')
+#SHOW
+get '/stockholding' do
+  items = Product.all()
+  @shop = Shop.new(items)
+  erb ( :'KPI/index' )
 end
 
+#DESTROY
 post '/products/:id/delete' do
   product = Product.find( params[:id] )
   product.delete()
   redirect to '/products'
 end
 
+#CREATE
 post '/products' do
   @product = Product.new( params )
   @product.save()
@@ -63,6 +70,7 @@ post "/products/search" do
   end
 end
 
+#UPDATE
 post '/products/:id' do
   @product = Product.find(params[:id])
   Product.new(params).update

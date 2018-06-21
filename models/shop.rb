@@ -4,13 +4,12 @@ require('pry')
 
 class Shop
 
-
   attr_accessor :items
 
   def initialize(items)
     @items = items
   end
-  
+
   def convert_to_cash(number)#1000 #100.00
     return "£#{number}"
   end

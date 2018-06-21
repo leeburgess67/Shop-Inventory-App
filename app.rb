@@ -8,5 +8,5 @@ also_reload( '../models/*' )
 get '/' do
   products = Product.all()
   @shop = Shop.new(products)
-  erb ( :"index" )
+  erb  :'index', layout: :'home_layout'
 end

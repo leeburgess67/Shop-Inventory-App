@@ -3,7 +3,6 @@ require_relative('./shop.rb')
 require_relative('./supplier.rb')
 require('pry-byebug')
 
-
 class Product
 
   attr_reader :id, :supplier_id, :upn
@@ -18,6 +17,7 @@ class Product
     @supplier_id = options['supplier_id'].to_i
     @upn = options['upn'].to_i
   end
+
   #CREATE
   def save()
     sql = "INSERT INTO products
@@ -109,13 +109,6 @@ class Product
     update()
   end
 
-  def refund(qty, shop)
-    @bookstock += qty
-    value = @retail_price.to_i * qty.to_i
-    return shop.takings -= value
-    binding.pry
-  end
-
   def markup
     return  @retail_price - @cost_price
   end
@@ -145,7 +138,7 @@ class Product
   def self.find_by_upn(upn)
     sql = "SELECT * FROM products
     WHERE upn = $1"
-    values = [upn.to_i]
+    values = [upn]
     result = SqlRunner.run(sql, values)
     if result.ntuples == 0
       return nil

@@ -35,6 +35,16 @@ supplier6 = Supplier.new({
   "email" => "sales@prs.co.uk",
   "phone" => "014194837473"
 })
+supplier7 = Supplier.new({
+  "name" => "Gremlin Music Supplies",
+  "email" => "sales@gremlin-wholesale.co.uk",
+  "phone" => "013653757372"
+})
+supplier8 = Supplier.new({
+  "name" => "Unique Music Solutions",
+  "email" => "retail@ums.com",
+  "phone" => "013105836754"
+})
 
 supplier1.save
 supplier2.save
@@ -42,6 +52,8 @@ supplier3.save
 supplier4.save
 supplier5.save
 supplier6.save
+supplier7.save
+supplier8.save
 
 
 product1 = Product.new({
@@ -105,7 +117,7 @@ product8= Product.new({
   "cost_price" => 678,
   "retail_price" => 899,
   "bookstock" => 3,
-  "supplier_id" => supplier1.id,
+  "supplier_id" => supplier6.id,
   "upn" => 50765
   })
 product9= Product.new({
@@ -113,7 +125,7 @@ product9= Product.new({
   "cost_price" => 250,
   "retail_price" => 399,
   "bookstock" => 5,
-  "supplier_id" => supplier1.id,
+  "supplier_id" => supplier7.id,
   "upn" => 50765
   })
 product10= Product.new({
@@ -121,7 +133,7 @@ product10= Product.new({
   "cost_price" => 589,
   "retail_price" => 699,
   "bookstock" => 1,
-  "supplier_id" => supplier6.id,
+  "supplier_id" => supplier8.id,
   "upn" => 50765
   })
 
