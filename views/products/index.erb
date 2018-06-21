@@ -3,6 +3,7 @@
   <label for="upn-field"></label>
   <input class="upn-text"
   required
+  min="500000" max="999999"
   align="center"
   type="number"
   name="upn"
@@ -12,64 +13,64 @@
 <table class="stock_table" >
   <tr>
     <th>Unique <br/>Product No</th>
-  <th>Description</th><th>
-    Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Markup %</th><th>Supplier</th><th>Qty <br>In stock </th><th></th><th>Qty<br>Sold</th><th>Qty<br> Delivered</th>
-  </th>
+    <th>Description</th><th>
+      Cost <br>Price</th><th>Retail Price</th><th>Item Markup</th><th>Markup %</th><th>Supplier</th><th>Qty <br>In stock </th><th></th><th>Qty<br>Sold</th><th>Qty<br> Delivered</th>
+    </th>
   </tr>
   <% for product in @products %>
-<tr>
-  <td>
-    <%= product.upn()  %>
-  </td>
-  <td> <a href="/products/<%= product.id %>/edit"><%= product.description()  %></a>
+  <tr>
+    <td>
+      <%= product.upn()  %>
+    </td>
+    <td> <a href="/products/<%= product.id %>/edit"><%= product.description()  %></a>
 
-  </td>
-  <td>
-    <%= product.convert_to_cash(product.cost_price()) %>
-  </td>
-  <td>
-    <%= product.convert_to_cash(product.retail_price) %>
-  </td>
-  <td>
-    <%= product.convert_to_cash(product.markup())  %>
-  </td>
-  <td>
-    <%= product.get_markup_percentage() %>
-  </td>
-  <td>
-    <%= product.supplier.name %>
-  </td>
+    </td>
+    <td>
+      <%= product.convert_to_cash(product.cost_price()) %>
+    </td>
+    <td>
+      <%= product.convert_to_cash(product.retail_price) %>
+    </td>
+    <td>
+      <%= product.convert_to_cash(product.markup())  %>
+    </td>
+    <td>
+      <%= product.get_markup_percentage() %>
+    </td>
+    <td>
+      <%= product.supplier.name %>
+    </td>
 
-  <td>
-    <%= product.bookstock()  %>
-  </td>
-  <td class="<%= product.check_stock %>">
-    <%= product.return_stock_warning %>
-  </td>
-  <td>
-    <form class="sold" action="/products/<%= product.id %>/sell" method="post">
-      <label for="qty-field"></label>
-      <input class="sold_box"
-      type="number"
-      min="0"
-      name="qty"
-      id="qty-field"><input class="small-btn-submit"type='submit' value="Submit">
-    </form>
-  </td>
-  <td>
-    <form class="delivered" action="/products/<%= product.id %>/delivered" method="post">
-      <label for="delivered-field"></label>
-      <input class="delivered_box"
-      type="number"
-      min="0"
-      name="delivered"
-      id="delivered-field"><input class="small-btn-submit" type='submit' value="Submit">
-  </form>
-  </td>
-  <td>
-  <p><a href="/products/<%= product.id %>/edit">Edit Product</a></p>
-  </td>
-</tr>
-<% end  %>
+    <td>
+      <%= product.bookstock()  %>
+    </td>
+    <td class="<%= product.check_stock %>">
+      <%= product.return_stock_warning %>
+    </td>
+    <td>
+      <form class="sold" action="/products/<%= product.id %>/sell" method="post">
+        <label for="qty-field"></label>
+        <input class="sold_box"
+        type="number"
+        min="0"
+        name="qty"
+        id="qty-field"><input class="small-btn-submit"type='submit' value="Submit">
+      </form>
+    </td>
+    <td>
+      <form class="delivered" action="/products/<%= product.id %>/delivered" method="post">
+        <label for="delivered-field"></label>
+        <input class="delivered_box"
+        type="number"
+        min="0"
+        name="delivered"
+        id="delivered-field"><input class="small-btn-submit" type='submit' value="Submit">
+      </form>
+    </td>
+    <td>
+      <p><a href="/products/<%= product.id %>/edit">Edit Product</a></p>
+    </td>
+  </tr>
+  <% end  %>
 
 </table>

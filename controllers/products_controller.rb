@@ -20,12 +20,27 @@ get '/products/new' do
   erb ( :"products/new" )
 end
 
+get '/products/:id/edit' do
+  @product = Product.find(params[:id])
+  @suppliers = Supplier.all()
+  erb(:"products/edit")
+end
+
+get "/products/search" do
+  @products = Product.all
+  erb (:'products/search')
+end
+
+get "/products/search" do
+  @products = Product.all
+  erb (:'products/search')
+end
+
 post '/products/:id/delete' do
   product = Product.find( params[:id] )
   product.delete()
   redirect to '/products'
 end
-
 
 post '/products' do
   @product = Product.new( params )
@@ -33,19 +48,11 @@ post '/products' do
   redirect '/products'
 end
 
-get '/products/:id/edit' do
-  @product = Product.find(params[:id])
-  @suppliers = Supplier.all()
-  erb(:"products/edit")
-end
-
-
 post '/products/:id/sell' do
   product = Product.find(params[:id].to_i)
   product.sell(params[:qty].to_i)
   redirect '/products'
 end
-
 
 post "/products/search" do
   @product = Product.find_by_upn(params['upn'])
@@ -62,11 +69,6 @@ post '/products/:id' do
   redirect '/products'
 end
 
-get "/products/search" do
-  @products = Product.all
-  erb (:'products/search')
-end
-
 post '/products/:id/check-stock' do
   product = Product.find(params[:id])
   Product.new(params).update
@@ -77,10 +79,4 @@ post '/products/:id/delivered' do
   product = Product.find(params[:id].to_i)
   product.delivered(params[:delivered].to_i)
   redirect '/products'
-end
-
-get '/stockholding' do
-  items = Product.all()
-  @shop = Shop.new(items)
-  erb ( :'KPI/index' )
 end

@@ -206,7 +206,7 @@ td a {
   cursor: pointer;
 }
 
-  .big-btn-new {
+.big-btn-new {
   width: 200px;
   height: 300px;
   font-size: 18px;
@@ -214,17 +214,17 @@ td a {
 }
 
 .big-btn-supplier {
-width: 216px;
-height: 300px;
-font-size: 18px;
-cursor: pointer;
+  width: 216px;
+  height: 300px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .big-btn-supplier-delete {
-width: 216px;
-height: 300px;
-font-size: 18px;
-cursor: pointer;
+  width: 216px;
+  height: 300px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 
@@ -245,7 +245,7 @@ div.stockholding-text {
 
 
 input[type="number"].supplier-phone-field {
-  width: 210px;
+  width: 166px;
   height: 20px;
   padding: 2px
 }
@@ -256,7 +256,7 @@ input[type="number"].supplier-phone-field {
 }
 
 .add-supplier-btn {
-  width: 150px;
+  width: 174px;
 }
 
 input[type="number"] .supplier-phone-field

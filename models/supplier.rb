@@ -17,13 +17,13 @@ class Supplier
   def save()
     sql = "INSERT INTO suppliers
     (
-      name,
-      email,
-      phone
+    name,
+    email,
+    phone
     )
     VALUES
     (
-      $1, $2, $3
+    $1, $2, $3
     )
     RETURNING *"
     values = [@name, @email, @phone]
@@ -57,7 +57,7 @@ class Supplier
     phone
     ) =
     (
-      $1, $2, $3
+    $1, $2, $3
     )
     WHERE id = $4"
     values = [@name, @email, @phone, @id]

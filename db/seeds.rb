@@ -121,7 +121,7 @@ product10= Product.new({
   "cost_price" => 589,
   "retail_price" => 699,
   "bookstock" => 1,
-  "supplier_id" => supplier1.id,
+  "supplier_id" => supplier6.id,
   "upn" => 50765
   })
 

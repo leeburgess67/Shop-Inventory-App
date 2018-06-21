@@ -1,15 +1,15 @@
 
 <h1>We currently have <%= @product.bookstock  %> <%= @product.description %>'s in Stock</h1>
 <h3>Cost Price: £<%= @product.cost_price %></h3git >
-<h3>Retail Price: £<%= @product.retail_price %></h3>
-<h3>Markup: £<%= @product.markup %> (<%= @product.get_markup_percentage %>)</h3>
+  <h3>Retail Price: £<%= @product.retail_price %></h3>
+  <h3>Markup: £<%= @product.markup %> (<%= @product.get_markup_percentage %>)</h3>
 
 
-<h3>Enter another UPN to check:</h3>
-<form class="upn" action="/products/search" method="post">
-  <label for="upn-field"></label>
-  <input
-  type="number"
-  name="upn"
-  id="upn-field"><input type='submit' value="Submit">
-</form>
+  <h3>Enter another UPN to check:</h3>
+  <form class="upn" action="/products/search" method="post">
+    <label for="upn-field"></label>
+    <input
+    type="number"
+    name="upn"
+    id="upn-field"><input type='submit' value="Submit">
+  </form>
