@@ -14,6 +14,16 @@ html {
   text-align: center;
 }
 
+.home-input {
+  display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 300px;
+ display: inline-block;
+ margin-left: 600px;
+
+}
+
 nav {
   font-size: 1.4em;
 }
